@@ -1,0 +1,22 @@
+{
+  "name": "BBCoordinators",
+  "version": "0.1.0",
+  "summary": "A short description of BBCoordinators.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/David Lenský/BBCoordinators",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "David Lenský": "david.lensky.77@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/David Lenský/BBCoordinators.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "BBCoordinators/Classes/**/*"
+}
