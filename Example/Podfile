@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BBCoordinators_Example' do
+  pod 'BBCoordinators', :path => '../'
+
+  target 'BBCoordinators_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
