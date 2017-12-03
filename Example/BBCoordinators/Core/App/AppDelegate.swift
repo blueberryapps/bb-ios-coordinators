@@ -6,16 +6,25 @@
 //  Copyright (c) 2017 David Lenský. All rights reserved.
 //
 
+import BBCoordinators
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+	var coordinator: BaseCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		self.window?.makeKeyAndVisible()
+
+		UIApplication.shared.statusBarStyle = .lightContent
+
+		self.coordinator = Coordinator.start(screen: AppScreen.intro)
+		self.window?.rootViewController = self.coordinator?.rootController
+
         return true
     }
 
