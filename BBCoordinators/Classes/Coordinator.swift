@@ -123,7 +123,7 @@ open class Coordinator<VM, VC: Controller<VM>>: BaseCoordinator, CoordinatorType
             var children: [UINavigationController] = []
             
             for tabScreen in screen.tabBarScreens {
-                let navController = screen.navigationBarType.init()
+                let navController = tabScreen.navigationBarType.init()
                 self.initialize(tabScreen, withRoot: navController, animated: false)
                 children.append(navController)
             }

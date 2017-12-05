@@ -35,13 +35,6 @@ extension AppScreen: Screen {
         }
     }
     
-    var isTabBar: Bool {
-        switch self {
-        case .tabBar: return true
-        default: return false
-        }
-    }
-    
     var tabBarScreens: [Screen] {
         switch self {
         case .tabBar: return [AppScreen.firstTab, AppScreen.secondTab, AppScreen.thirdTab]
@@ -54,7 +47,7 @@ extension AppScreen: Screen {
 		switch self {
 		case .firstTab: item = UITabBarItem(title: "First", image: #imageLiteral(resourceName: "one").resize(to: 30) , selectedImage: #imageLiteral(resourceName: "oneSelected").resize(to: 30))
 		case .secondTab: item = UITabBarItem(title: "Second", image: #imageLiteral(resourceName: "two").resize(to: 30), selectedImage: #imageLiteral(resourceName: "twoSelected").resize(to: 30))
-		case .thirdTab: item = UITabBarItem(title: "Three", image: #imageLiteral(resourceName: "three").resize(to: 30), selectedImage: #imageLiteral(resourceName: "threeSelected").resize(to: 30))
+		case .thirdTab: item = UITabBarItem(title: "Third", image: #imageLiteral(resourceName: "three").resize(to: 30), selectedImage: #imageLiteral(resourceName: "threeSelected").resize(to: 30))
 		default: return nil
 		}
 		item?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.3999532461, green: 0.4000268579, blue: 0.3999486566, alpha: 1)], for: .normal)
@@ -72,7 +65,7 @@ extension AppScreen: Screen {
 	var navigationBarType: UINavigationController.Type {
 		switch self {
 		case .intro: return PurpleNavigationController.self
-		case .tabBar: return BlueNavigationController.self
+		case .firstTab, .secondTab, .thirdTab: return BlueNavigationController.self
 		default: return UINavigationController.self
 		}
 	}

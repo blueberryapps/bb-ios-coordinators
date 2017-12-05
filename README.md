@@ -1,10 +1,5 @@
 # BBCoordinators
 
-[![CI Status](http://img.shields.io/travis/David Lenský/BBCoordinators.svg?style=flat)](https://travis-ci.org/David Lenský/BBCoordinators)
-[![Version](https://img.shields.io/cocoapods/v/BBCoordinators.svg?style=flat)](http://cocoapods.org/pods/BBCoordinators)
-[![License](https://img.shields.io/cocoapods/l/BBCoordinators.svg?style=flat)](http://cocoapods.org/pods/BBCoordinators)
-[![Platform](https://img.shields.io/cocoapods/p/BBCoordinators.svg?style=flat)](http://cocoapods.org/pods/BBCoordinators)
-
 ## Introduction
 
 BBCoordinators is an iOS framework, that encapsulates all navigation logic in MVVM architecture into a single element - Coordinator. It automates most of the repetitive work around creating a working navigation flow and makes it easier to maintain.
@@ -33,7 +28,7 @@ Then, run the following command in your project directory.
 $ pod install
 ```
 
-## Manual
+### Manual
 
 Copy `BBCoordinators` directory into your project and you're all set.
 
@@ -140,12 +135,9 @@ var coordinator: BaseCoordinator?
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
 ...
-
 	self.coordinator = Coordinator.start(screen: AppScreen.first)
 	self.window?.rootViewController = self.coordinator?.rootController
-
 ...
-
 }
 ```
 
@@ -156,20 +148,16 @@ Now you added a starting point for your app. By calling `start(screen: AppScreen
 Well we do have our `FirstCoordinator` up and running, but how do we get to our second screen? Just create a button in `FirstVC` and add this line to it's callback method.
 
 ```swift
-...
-
 self.viewModel.goToSecondButtonTapped()
-
-...
 ```
 
 Then implement it in `FirstVM`
 
 ```swift
 func goToSecondButtonTapped() {
-	...
-	self.coordinator?.go(.forward(to: AppScreen.second), animated: true)
-	...
+
+...
+    self.coordinator?.go(.forward(to: AppScreen.second), animated: true)
 }
 
 ```
@@ -177,6 +165,99 @@ func goToSecondButtonTapped() {
 And that's it! You can notice the `.forward(to:)`, which specifies that we want to move to a new screen (or 'push a new controller to the stack'). But sometimes you want to also get back right? And that's what the other cases are for. `.backOne` takes you on screen backwards ('pops a controller from stack'). The more advanced `.back(to:)` will take you backwards to a screen you specify, doesn't matter how far back it is. If a screen that is not in the stack is passed to this method, nothing will happen.
 
 ## Advanced usage
+
+### Using TabBar
+
+To use a TabBar in your app. You just need to implement one property (see code below).  If the array returned by `tabBarScreens` is not an empty array, then a TabBar screen is created. That means that the `customTabBarController` of `Controller` subclass holds an instance of `UITabBarController`. Also, all the screens mentioned in `tabBarScreens` are created as well and added to that `UITabBarController` in the same order as they are in the array.
+
+```swift
+var tabBarScreens: [Screen] {
+
+    switch self {
+    case .tabBar: return [AppScreen.firstTab, AppScreen.secondTab]
+    default: return []
+    }
+
+}
+```
+
+Of course when you use a UITabBar, you also use UITabBarItems. You can specify those as well by implementing:
+
+```swift
+var tabBarItem: UITabBarItem? {
+
+    switch self {
+    case .firstTab: return UITabBarItem(...)
+    case .secondTab: return UITabBarItem(...)
+    default: return nil
+    }
+
+}
+```
+
+### Using custom UITabBarController
+
+To change the default UITabBarController to your own subclass, just implement:
+
+```swift
+var tabBarType: UITabBarController.Type {
+
+    switch self {
+    case .tabBar: return YellowTabBarController.self
+    default: return UITabBarController.self
+    }
+
+}
+```
+
+### Using custom UINavigationController
+
+The same can be done for UINavigationController.
+
+_**Note:** Changing this property works only for screens that are related to creating a UINavigationControler. That means the first screen of the app (screen passed to the start(screen:) method) and also the first screens of each tab in TabBar screen (screens specified in `tabBarScreens`).
+
+```swift
+var navigationBarType: UINavigationController.Type {
+
+    switch self {
+    case .first: return PurpleNavigationController.self
+    case .firstTab, .secondTab: return BlueNavigationController.self
+    default: return UINavigationController.self
+    }
+
+}
+```
+
+### Customizing coordinators between screens
+
+If you need to change anything in the coordinators between or after the transition to another screen, you can override these methods to do it.
+
+_**Note:** WIP - This part is still unfinished. More customizable methods will be implemented. Naming might not be final either.
+
+```swift
+override func willChangeViewController() {}
+override func didChangeViewController() {}
+```
+
+### Using custom initializers for `Controller` and `ViewModel`
+
+Sometimes we need to initialize a `Controller` or `ViewModel` some other way, than through the default initializers, this framework offers. For example for passing parameters. To use your own initializer, just override the corresponding method in your coordinator.
+
+_**Note:** The code below can be found in the example project's `PopToCoordinator.swift` file.
+
+```swift
+override func customViewModel() -> PopToVM? {
+    return PopToVM(coordinator: self, diTest: "testString")
+}
+
+override func customViewController(with viewModel: PopToVM) -> PopToVC? {
+    return PopToVC(viewModel: viewModel, diTest: "anotherTestString")
+}
+```
+
+### Dependency Injection & passing parameters
+
+For now, the only solution to pass parameters between screens is through dependency injection, but luckily MVVM + Coordinators architecture works well with DI.
 
 WIP
 
