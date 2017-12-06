@@ -2,10 +2,5 @@ use_frameworks!
 
 target 'BBCoordinators_Example' do
   pod 'BBCoordinators', :path => '../'
-
-  target 'BBCoordinators_Tests' do
-    inherit! :search_paths
-
-    
-  end
+  pod 'Swinject', '~> 2.1.0'
 end

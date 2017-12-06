@@ -75,7 +75,6 @@ Next step is to create a `Controller` subclasses, that will be using your VMs. A
 ```swift
 class FirstVC: Controller<FirstVM> {
 
-
 }
 
 class SecondVC: Controller<SecondVM> {
@@ -165,6 +164,34 @@ func goToSecondButtonTapped() {
 And that's it! You can notice the `.forward(to:)`, which specifies that we want to move to a new screen (or 'push a new controller to the stack'). But sometimes you want to also get back right? And that's what the other cases are for. `.backOne` takes you on screen backwards ('pops a controller from stack'). The more advanced `.back(to:)` will take you backwards to a screen you specify, doesn't matter how far back it is. If a screen that is not in the stack is passed to this method, nothing will happen.
 
 ## Advanced usage
+
+### Cleaning up
+
+You should have a working example right now, but is it perfect? Not even close. But especially one thing really sticks out and that is using the routing method inside `ViewModel`. But what to do with it? Here's what:
+
+```swift
+protocol FirstCoordinatorType: CoordinatorType {
+    func goToSecond()
+}
+
+extension FirstCoordinator: FirstCoordinatorType {
+
+    func goToSecond() {
+		self.go(.forward(to: AppScreen.second))
+    }
+
+}
+```
+
+...and in `ViewModel`:
+
+```swift
+    //self.coordinator?.go(.forward(to: AppScreen.second), animated: true)
+    guard let coordinator = self.coordinator as? FirstCoordinatorType else { return }
+    coordinator.goToSecond()
+```
+
+That's better. Now you have all your navigation logic inside the coordinator. Each coordinator knows, where exactly can you go from it. Another advantage of using this approach is that you can easily send parameters to your coordinators this way. But more about passing parameters in [Dependency injection & passing parameters](#dependency-injection-&-passing-parameters)
 
 ### Using TabBar
 
@@ -257,9 +284,37 @@ override func customViewController(with viewModel: PopToVM) -> PopToVC? {
 
 ### Dependency Injection & passing parameters
 
-For now, the only solution to pass parameters between screens is through dependency injection, but luckily MVVM + Coordinators architecture works well with DI.
+For now, the only solution to pass parameters between screens is through dependency injection, but luckily MVVM + Coordinators architecture works well with DI.  I will show you how to easily do it with [Swinject library](https://github.com/Swinject/Swinject).
 
-WIP
+To pass a parameter to `Coordinator`, we can use the navigation method we set up in [Cleaning up](#cleaning-up). We change it to take a parameter and register that parameter to a Swinject container inside.
+
+```swift
+protocol FirstCoordinatorType: CoordinatorType {
+    func goToSecond(withParam param: String)
+}
+
+extension FirstCoordinator: FirstCoordinatorType {
+
+    func goToSecond(withParam param: String) {
+        container.register(String.self, name: "firstParam") { _ -> String in
+            return param
+        }
+        self.go(.forward(to: AppScreen.second))
+    }
+
+}
+```
+
+We can then access the parameter in `SecondCoordinator` like this:
+
+```swift
+override func customViewModel() -> SecondVM? {
+	let firstParam = container.resolve(String.self, name: "firstParam") ?? ""
+    return SecondVM(coordinator: self, test: firstParam)
+}
+```
+
+This is how you pass a parameter between both screen's `ViewModels`. But this is kinda messy.  For a more clean solution check the Example project, especially the `ThirdTabCoordinator`, `PopToCoordinator` and `DIContainer` files.
 
 ## Author
 

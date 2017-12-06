@@ -10,6 +10,7 @@
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		964152D91FD80B610095D491 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964152D81FD80B610095D491 /* DIContainer.swift */; };
 		9668D6F91FD03FDB00472BD1 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668D6F81FD03FDB00472BD1 /* UIImage.swift */; };
 		96D655CF1FCEFABF000D0471 /* AppCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655CE1FCEFABF000D0471 /* AppCoordination.swift */; };
 		96D655D01FCEFFBF000D0471 /* FirstTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C71FCEFA99000D0471 /* FirstTabCoordinator.swift */; };
@@ -57,6 +58,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7E51833B294275D4105F69D3 /* Pods_BBCoordinators_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBCoordinators_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		964152D81FD80B610095D491 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		9668D6F81FD03FDB00472BD1 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		96D655B31FCEFA99000D0471 /* PopToCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToCoordinator.swift; sourceTree = "<group>"; };
 		96D655B41FCEFA99000D0471 /* PopToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToVC.swift; sourceTree = "<group>"; };
@@ -135,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				96D655B11FCEF9E8000D0471 /* Core */,
+				964152D61FD807990095D491 /* Common */,
+				9668D6F71FD03FCD00472BD1 /* Extensions */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for BBCoordinators";
@@ -144,7 +148,6 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9668D6F71FD03FCD00472BD1 /* Extension */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
@@ -179,12 +182,28 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		9668D6F71FD03FCD00472BD1 /* Extension */ = {
+		964152D61FD807990095D491 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				964152D71FD80B510095D491 /* DependencyInjection */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		964152D71FD80B510095D491 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				964152D81FD80B610095D491 /* DIContainer.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		9668D6F71FD03FCD00472BD1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				9668D6F81FD03FDB00472BD1 /* UIImage.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		96D655B01FCEF9DE000D0471 /* App */ = {
@@ -415,10 +434,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BBCoordinators_Example/Pods-BBCoordinators_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BBCoordinators/BBCoordinators.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BBCoordinators.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -438,6 +459,7 @@
 				96D655D41FCEFFBF000D0471 /* IntroVC.swift in Sources */,
 				96D655DB1FCEFFBF000D0471 /* PopToVM.swift in Sources */,
 				96D655D71FCEFFBF000D0471 /* NextVC.swift in Sources */,
+				964152D91FD80B610095D491 /* DIContainer.swift in Sources */,
 				96D655D81FCEFFBF000D0471 /* NextVM.swift in Sources */,
 				96D655DA1FCEFFBF000D0471 /* PopToVC.swift in Sources */,
 				96D655CF1FCEFABF000D0471 /* AppCoordination.swift in Sources */,

@@ -16,11 +16,11 @@ class PopToCoordinator: Coordinator<PopToVM, PopToVC> {
     }
     
     override func customViewModel() -> PopToVM? {
-        return PopToVM(coordinator: self, diTest: "testString")
+        return DI.get(arg: self)
     }
     
     override func customViewController(with viewModel: PopToVM) -> PopToVC? {
-        return PopToVC(viewModel: viewModel, diTest: "anotherTestString")
+        return DI.get(arg: viewModel)
     }
     
 }

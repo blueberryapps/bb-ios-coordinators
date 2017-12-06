@@ -12,7 +12,8 @@ import Foundation
 class ThirdTabVM: ViewModel {
     
     func buttonTapped() {
-        self.coordinator?.go(.forward(to: AppScreen.popTo), animated: true)
+		guard let coordinator = self.coordinator as? ThirdTabCoordinatorType else { return }
+        coordinator.goToPopTo(withVMTestString: "Test VM DI successful", andVCTestString: "Test VC DI successful")
     }
     
 }
