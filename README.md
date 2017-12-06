@@ -112,12 +112,12 @@ enum AppScreen {
 
 extension AppScreen: Screen {
 
-	var type: BaseCoordinator.Type {
-		switch self {
-			case .first: return FirstCoordinator.self
-			case .tabBar: return SecondCoordinator.self
-		}
-	}
+    var type: BaseCoordinator.Type {
+        switch self {
+        case .first: return FirstCoordinator.self
+        case .tabBar: return SecondCoordinator.self
+        }
+    }
 
 )
 ```
@@ -134,8 +134,8 @@ var coordinator: BaseCoordinator?
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
 ...
-	self.coordinator = Coordinator.start(screen: AppScreen.first)
-	self.window?.rootViewController = self.coordinator?.rootController
+    self.coordinator = Coordinator.start(screen: AppScreen.first)
+    self.window?.rootViewController = self.coordinator?.rootController
 ...
 }
 ```
@@ -177,7 +177,7 @@ protocol FirstCoordinatorType: CoordinatorType {
 extension FirstCoordinator: FirstCoordinatorType {
 
     func goToSecond() {
-		self.go(.forward(to: AppScreen.second))
+        self.go(.forward(to: AppScreen.second))
     }
 
 }
@@ -309,7 +309,7 @@ We can then access the parameter in `SecondCoordinator` like this:
 
 ```swift
 override func customViewModel() -> SecondVM? {
-	let firstParam = container.resolve(String.self, name: "firstParam") ?? ""
+    let firstParam = container.resolve(String.self, name: "firstParam") ?? ""
     return SecondVM(coordinator: self, test: firstParam)
 }
 ```
