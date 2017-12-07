@@ -191,7 +191,7 @@ extension FirstCoordinator: FirstCoordinatorType {
     coordinator.goToSecond()
 ```
 
-That's better. Now you have all your navigation logic inside the coordinator. Each coordinator knows, where exactly can you go from it. Another advantage of using this approach is that you can easily send parameters to your coordinators this way. But more about passing parameters in [Dependency injection & passing parameters](#dependency-injection-&-passing-parameters)
+That's better. Now you have all your navigation logic inside the coordinator. Each coordinator knows, where exactly can you go from it. Another advantage of using this approach is that you can easily send parameters to your coordinators this way. But more about passing parameters in [Dependency injection & passing parameters](#dependency-injection-passing-parameters)
 
 ### Using TabBar
 
