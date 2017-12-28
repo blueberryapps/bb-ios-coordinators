@@ -11,23 +11,21 @@ public protocol CoordinatorType: class {
 	func go(_ action: Action, animated: Bool)
 }
 
-open class BaseCoordinator {
-	public private(set) var rootController: UINavigationController
-	internal var parent: BaseCoordinator?
-	internal var children: [BaseCoordinator] = []
+public protocol BaseCoordinator: class {
+	var rootController: UINavigationController { get set }
+	var parent: BaseCoordinator? { get set }
+	var children: [BaseCoordinator] { get set }
 
-	required public init(root: UINavigationController) {
-		self.rootController = root
-	}
+	init(root: UINavigationController)
 
-	internal func push(screen: Screen, animated: Bool) {}
+	func push(screen: Screen, animated: Bool)
 
 	/*
 	 Overridable methods for making changes in coordinator.
 		• Are called whenever a controller is pushed or popped from a rootController's stack.
 	*/
-	open func willChangeViewController() {}
-	open func didChangeViewController() {}
+	func willChangeViewController()
+	func didChangeViewController()
 }
 
 extension BaseCoordinator {

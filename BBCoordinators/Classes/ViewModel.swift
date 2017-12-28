@@ -15,5 +15,4 @@ open class ViewModel {
     required public init(coordinator: CoordinatorType) {
         self.coordinator = coordinator
     }
-    
 }

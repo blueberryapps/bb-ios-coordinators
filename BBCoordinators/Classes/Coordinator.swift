@@ -11,6 +11,28 @@ import UIKit
 // MARK: - Coordinator
 
 open class Coordinator<VM, VC: Controller<VM>>: BaseCoordinator, CoordinatorType {
+	public required init(root: UINavigationController) {
+		self.rootController = root
+	}
+	
+	public var rootController: UINavigationController
+
+	public var parent: BaseCoordinator?
+
+	public var children: [BaseCoordinator] = []
+
+	public required init(root: UINavigationController, children: [BaseCoordinator] = []) {
+		self.rootController = root
+	}
+
+	open func willChangeViewController() {
+
+	}
+
+	open func didChangeViewController() {
+
+	}
+
 
     /*
 	 Method for injecting custom ViewModel of type VM.
@@ -111,7 +133,7 @@ open class Coordinator<VM, VC: Controller<VM>>: BaseCoordinator, CoordinatorType
 
 		+ gets target screen that should be pushed to stack
 	*/
-    override internal func push(screen: Screen, animated: Bool) {
+	public func push(screen: Screen, animated: Bool) {
         let vm = self.customViewModel() ?? VM(coordinator: self)
 		let vc = self.customViewController(with: vm) ?? VC(viewModel: vm, item: screen.tabBarItem)
 
