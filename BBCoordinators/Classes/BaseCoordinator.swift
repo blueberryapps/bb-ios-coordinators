@@ -13,7 +13,7 @@ public protocol CoordinatorType: class {
 
 open class BaseCoordinator {
 	public private(set) var rootController: UINavigationController
-	internal var parent: BaseCoordinator?
+	weak internal var parent: BaseCoordinator?
 	internal var children: [BaseCoordinator] = []
 
 	required public init(root: UINavigationController) {
