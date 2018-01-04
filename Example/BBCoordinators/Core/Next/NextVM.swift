@@ -9,7 +9,7 @@
 import BBCoordinators
 import Foundation
 
-class NextVM: ViewModel {
+class NextVM: BaseViewModel {
     
     func buttonTapped() {
         self.coordinator?.go(.backOne, animated: true)

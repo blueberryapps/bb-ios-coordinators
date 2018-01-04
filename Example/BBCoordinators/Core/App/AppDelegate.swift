@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		UIApplication.shared.statusBarStyle = .lightContent
 
-		self.coordinator = Coordinator.start(screen: AppScreen.intro)
+		self.coordinator = BaseCoordinator.start(screen: AppScreen.intro)
 		self.window?.rootViewController = self.coordinator?.rootController
 
         return true

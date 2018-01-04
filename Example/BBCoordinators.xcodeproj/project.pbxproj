@@ -12,6 +12,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		964152D91FD80B610095D491 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964152D81FD80B610095D491 /* DIContainer.swift */; };
 		9668D6F91FD03FDB00472BD1 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668D6F81FD03FDB00472BD1 /* UIImage.swift */; };
+		96A191891FFEC5DC00916149 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A191881FFEC5DC00916149 /* BaseViewModel.swift */; };
 		96D655CF1FCEFABF000D0471 /* AppCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655CE1FCEFABF000D0471 /* AppCoordination.swift */; };
 		96D655D01FCEFFBF000D0471 /* FirstTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C71FCEFA99000D0471 /* FirstTabCoordinator.swift */; };
 		96D655D11FCEFFBF000D0471 /* FirstTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C81FCEFA99000D0471 /* FirstTabVC.swift */; };
@@ -60,6 +61,7 @@
 		7E51833B294275D4105F69D3 /* Pods_BBCoordinators_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBCoordinators_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964152D81FD80B610095D491 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		9668D6F81FD03FDB00472BD1 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		96A191881FFEC5DC00916149 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		96D655B31FCEFA99000D0471 /* PopToCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToCoordinator.swift; sourceTree = "<group>"; };
 		96D655B41FCEFA99000D0471 /* PopToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToVC.swift; sourceTree = "<group>"; };
 		96D655B51FCEFA99000D0471 /* PopToVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToVM.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		964152D61FD807990095D491 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				96A191861FFEC5C900916149 /* Architecture */,
 				964152D71FD80B510095D491 /* DependencyInjection */,
 			);
 			path = Common;
@@ -204,6 +207,22 @@
 				9668D6F81FD03FDB00472BD1 /* UIImage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		96A191861FFEC5C900916149 /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				96A191871FFEC5D100916149 /* ViewModel */,
+			);
+			path = Architecture;
+			sourceTree = "<group>";
+		};
+		96A191871FFEC5D100916149 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96A191881FFEC5DC00916149 /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		96D655B01FCEF9DE000D0471 /* App */ = {
@@ -464,6 +483,7 @@
 				96D655DA1FCEFFBF000D0471 /* PopToVC.swift in Sources */,
 				96D655CF1FCEFABF000D0471 /* AppCoordination.swift in Sources */,
 				96D655E81FCF0944000D0471 /* AppScheme.swift in Sources */,
+				96A191891FFEC5DC00916149 /* BaseViewModel.swift in Sources */,
 				96DEBEFB1FD15F9700926BBC /* PurpleNavigationController.swift in Sources */,
 				96D655DD1FCEFFBF000D0471 /* SecondTabVC.swift in Sources */,
 				96D655E01FCEFFBF000D0471 /* TabBarVC.swift in Sources */,
@@ -549,6 +569,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -594,6 +615,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

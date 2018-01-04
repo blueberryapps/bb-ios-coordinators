@@ -9,7 +9,7 @@
 import BBCoordinators
 import Foundation
 
-class FirstTabVM: ViewModel {
+class FirstTabVM: BaseViewModel {
     
     func buttonTapped() {
         self.coordinator?.go(.forward(to: AppScreen.next), animated: true)
