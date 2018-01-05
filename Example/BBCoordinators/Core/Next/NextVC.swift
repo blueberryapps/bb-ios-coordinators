@@ -9,7 +9,7 @@
 import BBCoordinators
 import UIKit
 
-class NextVC: Controller<NextVM> {
+class NextVC: BaseController<NextVM> {
     
 	let appScheme = AppScheme.instantiate()
 
@@ -26,7 +26,7 @@ class NextVC: Controller<NextVM> {
 	}
 
 	@objc func buttonTapped() {
-		self.viewModel.buttonTapped()
+		self.viewModel?.buttonTapped()
 	}
 
 }

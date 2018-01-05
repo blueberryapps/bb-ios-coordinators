@@ -9,7 +9,7 @@
 import BBCoordinators
 import Foundation
 
-class NextCoordinator: Coordinator<NextVM, NextVC> {
+class NextCoordinator: CustomCoordinator<NextVM, NextVC> {
     
     override func didChangeViewController() {
         self.rootController.setNavigationBarHidden(true, animated: false)

@@ -13,6 +13,7 @@
 		964152D91FD80B610095D491 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964152D81FD80B610095D491 /* DIContainer.swift */; };
 		9668D6F91FD03FDB00472BD1 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668D6F81FD03FDB00472BD1 /* UIImage.swift */; };
 		96A191891FFEC5DC00916149 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A191881FFEC5DC00916149 /* BaseViewModel.swift */; };
+		96A191901FFED4F400916149 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1918F1FFED4F400916149 /* BaseController.swift */; };
 		96D655CF1FCEFABF000D0471 /* AppCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655CE1FCEFABF000D0471 /* AppCoordination.swift */; };
 		96D655D01FCEFFBF000D0471 /* FirstTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C71FCEFA99000D0471 /* FirstTabCoordinator.swift */; };
 		96D655D11FCEFFBF000D0471 /* FirstTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C81FCEFA99000D0471 /* FirstTabVC.swift */; };
@@ -62,6 +63,7 @@
 		964152D81FD80B610095D491 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		9668D6F81FD03FDB00472BD1 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		96A191881FFEC5DC00916149 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		96A1918F1FFED4F400916149 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		96D655B31FCEFA99000D0471 /* PopToCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToCoordinator.swift; sourceTree = "<group>"; };
 		96D655B41FCEFA99000D0471 /* PopToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToVC.swift; sourceTree = "<group>"; };
 		96D655B51FCEFA99000D0471 /* PopToVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopToVM.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		96A191861FFEC5C900916149 /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				96A1918E1FFED4E700916149 /* Controller */,
 				96A191871FFEC5D100916149 /* ViewModel */,
 			);
 			path = Architecture;
@@ -223,6 +226,14 @@
 				96A191881FFEC5DC00916149 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96A1918E1FFED4E700916149 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96A1918F1FFED4F400916149 /* BaseController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		96D655B01FCEF9DE000D0471 /* App */ = {
@@ -478,6 +489,7 @@
 				96D655D41FCEFFBF000D0471 /* IntroVC.swift in Sources */,
 				96D655DB1FCEFFBF000D0471 /* PopToVM.swift in Sources */,
 				96D655D71FCEFFBF000D0471 /* NextVC.swift in Sources */,
+				96A191901FFED4F400916149 /* BaseController.swift in Sources */,
 				964152D91FD80B610095D491 /* DIContainer.swift in Sources */,
 				96D655D81FCEFFBF000D0471 /* NextVM.swift in Sources */,
 				96D655DA1FCEFFBF000D0471 /* PopToVC.swift in Sources */,
