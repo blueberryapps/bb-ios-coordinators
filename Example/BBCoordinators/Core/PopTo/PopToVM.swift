@@ -9,7 +9,7 @@
 import BBCoordinators
 import Foundation
 
-class PopToVM: ViewModel {
+class PopToVM: BaseViewModel {
     
     func buttonTapped() {
         self.coordinator?.go(.back(to: AppScreen.intro), animated: true)

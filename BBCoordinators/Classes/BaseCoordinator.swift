@@ -53,30 +53,42 @@ extension BaseCoordinator {
 
 }
 
-public protocol CoordinatorrFactory {
-	static func createInstance(root: UINavigationController, children: [BaseCoordinator], container: Container) -> CoordinatorrFactory
+public protocol CoordinatorrFactory: class {
+	static func createInstance(root: UINavigationController?, children: [BaseCoordinator], container: Container?) -> Self
 }
 
-public protocol Coordinatorr: CoordinatorType, CoordinatorrFactory {
+public protocol MainFlowCoordinator: Coordinatorr, CoordinatorType {
+    var rootController: UINavigationController { get set }
+}
 
-	var rootController: UINavigationController { get set }
+public protocol LeafCoordinator: CoordinatorType {
+    weak var flowCoordinator: MainFlowCoordinator? { get set }
+}
+
+public protocol Coordinatorr: CoordinatorrFactory {
 	var parent: BaseCoordinator? { get set }
 	var children: [BaseCoordinator] { get set }
-
-	/*
-	Overridable methods for making changes in coordinator.
-	• Are called whenever a controller is pushed or popped from a rootController's stack.
-	*/
-	func willChangeViewController()
-	func didChangeViewController()
+    func start()
 }
-public class NavigationBasedCoordinator<VM, VC>: Coordinatorr {
-	public static func createInstance(root: UINavigationController, children: [BaseCoordinator], container: Container) -> CoordinatorrFactory {
-		return NavigationBasedCoordinator.init(root: root, children: children, container: container)
-	}
-
-	public var rootController: UINavigationController
-
+public class NavigationBasedCoordinator<VM, VC>: MainFlowCoordinator {
+    public func start() {
+        print("")
+    }
+    
+    public func go(_ action: Action, animated: Bool) {
+        print("")
+    }
+    
+    public class func createInstance(root: UINavigationController? = nil, children: [BaseCoordinator], container: Container? = nil) -> Self {
+        return createInstanceHelper(root: root, children: children, container: container)
+    }
+    
+    private static func createInstanceHelper<T>(root: UINavigationController? = nil, children: [BaseCoordinator], container: Container? = nil) -> T {
+        return NavigationBasedCoordinator<VM, VC>.init(root: root!, children: children, container: container!) as! T
+    }
+    
+    public var rootController: UINavigationController
+    
 	public var parent: BaseCoordinator?
 
 	public var children: [BaseCoordinator]
@@ -85,28 +97,26 @@ public class NavigationBasedCoordinator<VM, VC>: Coordinatorr {
 		self.rootController = root
 		self.children = children
 	}
+}
 
-	public func willChangeViewController() {
-		print("")
-
-	}
-
-	public func didChangeViewController() {
-		print("")
-	}
-
-	func pop(animated: Bool) {
-
-	}
-
-	public func go(_ action: Action, animated: Bool) {
-		switch action {
-		case .backOne: self.pop(animated: animated)
-		case .forward(let screen): self.initialize(screen, withRoot: self.rootController, animated: animated)
-		case .back(let screen): self.popTo(screen, animated: animated)
-		}
-
-	}
-
+public class BasicCoordinator: LeafCoordinator {
+    public var flowCoordinator: MainFlowCoordinator?
+    
+    public func go(_ action: Action, animated: Bool) {
+        print("")
+    }
+    
+    public var parent: BaseCoordinator?
+    public var children: [BaseCoordinator]
+    
+    init(parent: BaseCoordinator?, children: [BaseCoordinator], flowCoorinator: MainFlowCoordinator) {
+        self.parent = parent
+        self.children = children
+        self.flowCoordinator = flowCoorinator
+    }
+    
+    func start() {
+        
+    }
 }
 

@@ -9,4 +9,4 @@
 import BBCoordinators
 import Foundation
 
-class TabBarVM: ViewModel { }
+class TabBarVM: BaseViewModel { }
