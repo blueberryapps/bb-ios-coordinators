@@ -40,5 +40,6 @@ The idea is based on blog post from Soroush Khanlou http://khanlou.com/2015/10/c
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Swinject', '~> 2.1.0'
+
 end

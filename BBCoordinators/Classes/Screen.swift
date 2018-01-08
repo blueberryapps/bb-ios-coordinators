@@ -8,7 +8,7 @@
 import UIKit
 
 /*
- Represents a screen (or a ViewController) in stack.
+Represents a screen (or a ViewController) in stack.
 */
 public protocol Screen {
 
@@ -16,22 +16,22 @@ public protocol Screen {
 	var type: BaseCoordinator.Type { get }
 
 	/*
-	 Array of TabBar's subscreens
-		• If empty, a screen without tab bar is created.
-		• Default is empty array.
+	Array of TabBar's subscreens
+	• If empty, a screen without tab bar is created.
+	• Default is empty array.
 	*/
 	var tabBarScreens: [Screen] { get }
 
 	/*
-	 Type of tab bar controller that is created in TabBar screen.
-		• Default is UITabBarController.
+	Type of tab bar controller that is created in TabBar screen.
+	• Default is UITabBarController.
 	*/
 	var tabBarType: UITabBarController.Type { get }
 
 	/*
-	 UITabBarItem for a screen.
-		• If empty, no item is set to the corresponding ViewController
-		• Default is nil
+	UITabBarItem for a screen.
+	• If empty, no item is set to the corresponding ViewController
+	• Default is nil
 	*/
 	var tabBarItem: UITabBarItem? { get }
 
@@ -46,3 +46,9 @@ public extension Screen {
 	var tabBarItem: UITabBarItem? { return nil }
 	var navigationBarType: UINavigationController.Type { return UINavigationController.self }
 }
+
+public protocol Screeen {
+
+
+}
+
