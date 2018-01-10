@@ -6,10 +6,9 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import UIKit
 
-class IntroVC: Controller<IntroVM> {
+class IntroVC: BaseController<IntroVM> {
 
 	let appScheme = AppScheme.instantiate()
     
@@ -26,7 +25,7 @@ class IntroVC: Controller<IntroVM> {
 	}
 
     @objc func buttonTapped() {
-        self.viewModel.buttonTapped()
+        self.viewModel?.buttonTapped()
     }
 
 }

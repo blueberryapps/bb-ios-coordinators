@@ -6,13 +6,8 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import Foundation
 
-class SecondTabCoordinator: Coordinator<SecondTabVM, SecondTabVC> {
-    
-    override func didChangeViewController() {
-        self.rootController.setNavigationBarHidden(true, animated: false)
-    }
+class SecondTabCoordinator: BaseCoordinator<SecondTabVM, SecondTabVC> {
     
 }

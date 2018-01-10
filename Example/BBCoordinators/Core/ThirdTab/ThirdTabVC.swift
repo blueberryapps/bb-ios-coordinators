@@ -6,10 +6,9 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import UIKit
 
-class ThirdTabVC: Controller<ThirdTabVM> {
+class ThirdTabVC: BaseController<ThirdTabVM> {
     
 	let appScheme = AppScheme.instantiate()
 
@@ -26,7 +25,7 @@ class ThirdTabVC: Controller<ThirdTabVM> {
 	}
 
 	@objc func buttonTapped() {
-		self.viewModel.buttonTapped()
+		self.viewModel?.buttonTapped()
 	}
 
 }

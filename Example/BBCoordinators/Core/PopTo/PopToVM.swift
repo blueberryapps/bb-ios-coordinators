@@ -6,18 +6,12 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import Foundation
 
-class PopToVM: ViewModel {
+class PopToVM: BaseViewModel {
     
     func buttonTapped() {
-        self.coordinator?.go(.back(to: AppScreen.intro), animated: true)
-    }
-    
-    convenience init(coordinator: CoordinatorType, diTest: String) {
-        self.init(coordinator: coordinator)
-        print(diTest)
+        self.coordinator?.popTo(AppScreen.intro)
     }
     
 }

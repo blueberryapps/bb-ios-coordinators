@@ -9,14 +9,10 @@
 import BBCoordinators
 import Foundation
 
-class IntroCoordinator: Coordinator<IntroVM, IntroVC> {
-    
-	override func willChangeViewController() {
-		self.rootController.setNavigationBarHidden(true, animated: false)
-	}
+class IntroCoordinator: BaseCoordinator<IntroVM, IntroVC> {
 
     func goToMain() {
-        self.go(.forward(to: AppScreen.tabBar))
+        //self.go(.forward(to: AppScreen.tabBar))
     }
     
 }

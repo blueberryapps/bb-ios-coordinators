@@ -12,18 +12,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-	var coordinator: BaseCoordinator?
+	var manager = DefaultCoordinationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-		self.window?.makeKeyAndVisible()
+		self.manager.window.makeKeyAndVisible()
 
 		UIApplication.shared.statusBarStyle = .lightContent
 
-		self.coordinator = Coordinator.start(screen: AppScreen.intro)
-		self.window?.rootViewController = self.coordinator?.rootController
+		self.manager.addStack(with: AppScreen.firstTab)
+		self.manager.addStack(with: AppScreen.secondTab)
+		self.manager.addStack(with: AppScreen.thirdTab)
 
         return true
     }

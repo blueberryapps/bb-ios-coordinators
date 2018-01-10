@@ -6,10 +6,9 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import Foundation
 
-class ThirdTabVM: ViewModel {
+class ThirdTabVM: BaseViewModel {
     
     func buttonTapped() {
 		guard let coordinator = self.coordinator as? ThirdTabCoordinatorType else { return }

@@ -8,12 +8,19 @@
 
 import Foundation
 
-open class ViewModel {
+public protocol ViewModel: class {
     
-    weak public var coordinator: CoordinatorType?
+	weak var coordinator: Coordinatable? { get set }
     
-    required public init(coordinator: CoordinatorType) {
-        self.coordinator = coordinator
-    }
+    init()
     
+}
+
+public extension ViewModel {
+
+	init(coordinator: Coordinatable) {
+		self.init()
+		self.coordinator = coordinator
+	}
+
 }

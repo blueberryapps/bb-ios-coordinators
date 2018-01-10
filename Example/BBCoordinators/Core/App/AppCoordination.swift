@@ -11,7 +11,6 @@ import Foundation
 
 enum AppScreen {
     case intro
-    case tabBar
     case firstTab
     case secondTab
     case thirdTab
@@ -23,22 +22,14 @@ enum AppScreen {
 
 extension AppScreen: Screen {
     
-    var type: BaseCoordinator.Type {
+    var type: CoordinatorType.Type {
         switch self {
         case .intro: return IntroCoordinator.self
-        case .tabBar: return TabBarCoordinator.self
         case .firstTab: return FirstTabCoordinator.self
         case .secondTab: return SecondTabCoordinator.self
         case .thirdTab: return ThirdTabCoordinator.self
         case .next: return NextCoordinator.self
         case .popTo: return PopToCoordinator.self
-        }
-    }
-    
-    var tabBarScreens: [Screen] {
-        switch self {
-        case .tabBar: return [AppScreen.firstTab, AppScreen.secondTab, AppScreen.thirdTab]
-        default: return []
         }
     }
 
@@ -53,21 +44,6 @@ extension AppScreen: Screen {
 		item?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.3999532461, green: 0.4000268579, blue: 0.3999486566, alpha: 1)], for: .normal)
 		item?.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 1, alpha: 1)], for: .selected)
 		return item
-	}
-
-	var tabBarType: UITabBarController.Type {
-		switch self {
-		case .tabBar: return YellowTabBarController.self
-		default: return UITabBarController.self
-		}
-	}
-
-	var navigationBarType: UINavigationController.Type {
-		switch self {
-		case .intro: return PurpleNavigationController.self
-		case .firstTab, .secondTab, .thirdTab: return BlueNavigationController.self
-		default: return UINavigationController.self
-		}
 	}
 
 }

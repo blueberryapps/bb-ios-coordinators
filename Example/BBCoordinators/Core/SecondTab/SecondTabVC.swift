@@ -6,10 +6,9 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import UIKit
 
-class SecondTabVC: Controller<SecondTabVM> {
+class SecondTabVC: BaseController<SecondTabVM> {
     
 	let appScheme = AppScheme.instantiate()
 
@@ -26,7 +25,7 @@ class SecondTabVC: Controller<SecondTabVM> {
 	}
 
 	@objc func buttonTapped() {
-		self.viewModel.buttonTapped()
+		self.viewModel?.buttonTapped()
 	}
 
 }

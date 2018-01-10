@@ -6,14 +6,9 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import Foundation
 
-class NextCoordinator: Coordinator<NextVM, NextVC> {
-    
-    override func didChangeViewController() {
-        self.rootController.setNavigationBarHidden(true, animated: false)
-    }
+class NextCoordinator: BaseCoordinator<NextVM, NextVC> {
     
 }
 

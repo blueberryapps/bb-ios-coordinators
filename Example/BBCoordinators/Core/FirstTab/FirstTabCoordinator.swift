@@ -6,13 +6,8 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import Foundation
 
-class FirstTabCoordinator: Coordinator<FirstTabVM, FirstTabVC> {
-    
-    override func didChangeViewController() {
-        self.rootController.setNavigationBarHidden(true, animated: false)
-    }
+class FirstTabCoordinator: BaseCoordinator<FirstTabVM, FirstTabVC> {
     
 }

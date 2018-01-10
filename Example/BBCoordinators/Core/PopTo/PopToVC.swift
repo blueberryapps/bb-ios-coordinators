@@ -6,10 +6,9 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import UIKit
 
-class PopToVC: Controller<PopToVM> {
+class PopToVC: BaseController<PopToVM> {
 
 	let appScheme = AppScheme.instantiate()
 
@@ -31,7 +30,7 @@ class PopToVC: Controller<PopToVM> {
 	}
 
 	@objc func buttonTapped() {
-		self.viewModel.buttonTapped()
+		self.viewModel?.buttonTapped()
 	}
 
 }

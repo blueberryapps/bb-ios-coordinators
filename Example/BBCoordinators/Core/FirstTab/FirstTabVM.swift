@@ -6,13 +6,12 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import BBCoordinators
 import Foundation
 
-class FirstTabVM: ViewModel {
+class FirstTabVM: BaseViewModel {
     
     func buttonTapped() {
-        self.coordinator?.go(.forward(to: AppScreen.next), animated: true)
+        self.coordinator?.push(screen: AppScreen.next, animated: true)
     }
     
 }
