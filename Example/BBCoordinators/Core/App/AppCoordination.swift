@@ -10,11 +10,11 @@ import BBCoordinators
 import Foundation
 
 enum AppScreen {
-    case intro
     case firstTab
     case secondTab
     case thirdTab
     case next
+	case pop
     case popTo
 }
 
@@ -24,11 +24,11 @@ extension AppScreen: Screen {
     
     var type: CoordinatorType.Type {
         switch self {
-        case .intro: return IntroCoordinator.self
         case .firstTab: return FirstTabCoordinator.self
         case .secondTab: return SecondTabCoordinator.self
         case .thirdTab: return ThirdTabCoordinator.self
         case .next: return NextCoordinator.self
+		case .pop: return PopCoordinator.self
         case .popTo: return PopToCoordinator.self
         }
     }

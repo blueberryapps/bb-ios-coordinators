@@ -26,6 +26,12 @@
 		772C82ABD75B5154A38304095F44C44F /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A4ED28910A9E81E4DF7B5D5AF6CEA /* Container.swift */; };
 		7BF37834B1E1B087C2D093B2103148F3 /* SynchronizedResolver.Arguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD494998325225B49AA0143C20765E3F /* SynchronizedResolver.Arguments.swift */; };
 		83C8C6CE638417AF6263024E6B95D735 /* SynchronizedResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059032485B197FF69BD39326AE0B5E5C /* SynchronizedResolver.swift */; };
+		96E1A9722006733C0082189B /* CoordinationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96620063E890082189B /* CoordinationManager.swift */; };
+		96E1A9732006733C0082189B /* CoordinationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96720063E890082189B /* CoordinationStack.swift */; };
+		96E1A9742006733C0082189B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96820063E890082189B /* Coordinator.swift */; };
+		96E1A975200673460082189B /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96320063E890082189B /* Screen.swift */; };
+		96E1A976200673460082189B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96420063E890082189B /* Settings.swift */; };
+		96FA8E4D200786E8008234B1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FA8E4C200786E8008234B1 /* Event.swift */; };
 		9B34AC966AB395C37FEB187EEB117972 /* SpinLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C6D9EDF73D83CBD88E1BB508FDA86 /* SpinLock.swift */; };
 		A28E7048CEB4A4A8B57C2C6B77A99A58 /* Pods-BBCoordinators_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B02BD2CF087AC564575A41523306620F /* Pods-BBCoordinators_Example-dummy.m */; };
 		B8C736CF8EC31497F9AB07D1E6F6F0A5 /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8B13BF7CF6C5F95D2E021C78DFAAE /* DebugHelper.swift */; };
@@ -94,6 +100,7 @@
 		96E1A96620063E890082189B /* CoordinationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinationManager.swift; sourceTree = "<group>"; };
 		96E1A96720063E890082189B /* CoordinationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinationStack.swift; sourceTree = "<group>"; };
 		96E1A96820063E890082189B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		96FA8E4C200786E8008234B1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		99FDC7E64930137702EAC05D2438AC54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C27D341EC9CD2CCA2E3F08FCAFED12 /* BBCoordinators-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BBCoordinators-dummy.m"; sourceTree = "<group>"; };
 		B02BD2CF087AC564575A41523306620F /* Pods-BBCoordinators_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BBCoordinators_Example-dummy.m"; sourceTree = "<group>"; };
@@ -255,6 +262,7 @@
 			children = (
 				96E1A96320063E890082189B /* Screen.swift */,
 				96E1A96420063E890082189B /* Settings.swift */,
+				96FA8E4C200786E8008234B1 /* Event.swift */,
 			);
 			name = Settings;
 			path = BBCoordinators/Classes/Settings;
@@ -263,9 +271,9 @@
 		96E1A96520063E890082189B /* Coordination */ = {
 			isa = PBXGroup;
 			children = (
-				96E1A96620063E890082189B /* CoordinationManager.swift */,
-				96E1A96720063E890082189B /* CoordinationStack.swift */,
 				96E1A96820063E890082189B /* Coordinator.swift */,
+				96E1A96720063E890082189B /* CoordinationStack.swift */,
+				96E1A96620063E890082189B /* CoordinationManager.swift */,
 			);
 			name = Coordination;
 			path = BBCoordinators/Classes/Coordination;
@@ -434,9 +442,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E1A975200673460082189B /* Screen.swift in Sources */,
+				96FA8E4D200786E8008234B1 /* Event.swift in Sources */,
+				96E1A9722006733C0082189B /* CoordinationManager.swift in Sources */,
+				96E1A976200673460082189B /* Settings.swift in Sources */,
 				6D0736A2A2286BBCC759DA42B56DAD77 /* BBCoordinators-dummy.m in Sources */,
+				96E1A9742006733C0082189B /* Coordinator.swift in Sources */,
 				42CED7D39ED7420B35A8631AB1EE0B4C /* Controller.swift in Sources */,
 				6AC8AADA90D75ADD2B9A613E3E0CD46E /* ViewModel.swift in Sources */,
+				96E1A9732006733C0082189B /* CoordinationStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

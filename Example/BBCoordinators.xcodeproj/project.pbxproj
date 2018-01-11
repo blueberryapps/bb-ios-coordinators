@@ -16,9 +16,6 @@
 		96D655D01FCEFFBF000D0471 /* FirstTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C71FCEFA99000D0471 /* FirstTabCoordinator.swift */; };
 		96D655D11FCEFFBF000D0471 /* FirstTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C81FCEFA99000D0471 /* FirstTabVC.swift */; };
 		96D655D21FCEFFBF000D0471 /* FirstTabVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C91FCEFA99000D0471 /* FirstTabVM.swift */; };
-		96D655D31FCEFFBF000D0471 /* IntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655CB1FCEFA9A000D0471 /* IntroCoordinator.swift */; };
-		96D655D41FCEFFBF000D0471 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655CC1FCEFA9A000D0471 /* IntroVC.swift */; };
-		96D655D51FCEFFBF000D0471 /* IntroVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655CD1FCEFA9A000D0471 /* IntroVM.swift */; };
 		96D655D61FCEFFBF000D0471 /* NextCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655BF1FCEFA99000D0471 /* NextCoordinator.swift */; };
 		96D655D71FCEFFBF000D0471 /* NextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C01FCEFA99000D0471 /* NextVC.swift */; };
 		96D655D81FCEFFBF000D0471 /* NextVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D655C11FCEFA99000D0471 /* NextVM.swift */; };
@@ -39,6 +36,9 @@
 		96E1A95D200620520082189B /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A95C200620520082189B /* BaseViewModel.swift */; };
 		96E1A95F200620610082189B /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A95E200620610082189B /* BaseController.swift */; };
 		96E1A961200623940082189B /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A960200623940082189B /* BaseCoordinator.swift */; };
+		96E1A96B200672650082189B /* PopCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96A200672650082189B /* PopCoordinator.swift */; };
+		96E1A96D2006726D0082189B /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96C2006726D0082189B /* PopVC.swift */; };
+		96E1A96F200672740082189B /* PopVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1A96E200672740082189B /* PopVM.swift */; };
 		AC0A8119E5C001B0EE62FE14 /* Pods_BBCoordinators_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1360B8A777678F615D2F5AB8 /* Pods_BBCoordinators_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,9 +75,6 @@
 		96D655C71FCEFA99000D0471 /* FirstTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabCoordinator.swift; sourceTree = "<group>"; };
 		96D655C81FCEFA99000D0471 /* FirstTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabVC.swift; sourceTree = "<group>"; };
 		96D655C91FCEFA99000D0471 /* FirstTabVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabVM.swift; sourceTree = "<group>"; };
-		96D655CB1FCEFA9A000D0471 /* IntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCoordinator.swift; sourceTree = "<group>"; };
-		96D655CC1FCEFA9A000D0471 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
-		96D655CD1FCEFA9A000D0471 /* IntroVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVM.swift; sourceTree = "<group>"; };
 		96D655CE1FCEFABF000D0471 /* AppCoordination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordination.swift; sourceTree = "<group>"; };
 		96D655E51FCF0920000D0471 /* AppScheme.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppScheme.xib; sourceTree = "<group>"; };
 		96D655E71FCF0944000D0471 /* AppScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScheme.swift; sourceTree = "<group>"; };
@@ -87,6 +84,9 @@
 		96E1A95C200620520082189B /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		96E1A95E200620610082189B /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		96E1A960200623940082189B /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		96E1A96A200672650082189B /* PopCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCoordinator.swift; sourceTree = "<group>"; };
+		96E1A96C2006726D0082189B /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
+		96E1A96E200672740082189B /* PopVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVM.swift; sourceTree = "<group>"; };
 		C89BC978EAF9D624ADD6804A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,11 +223,11 @@
 			isa = PBXGroup;
 			children = (
 				96D655C61FCEFA99000D0471 /* FirstTab */,
-				96D655CA1FCEFA9A000D0471 /* Intro */,
-				96D655BE1FCEFA99000D0471 /* Next */,
-				96D655B21FCEFA99000D0471 /* PopTo */,
 				96D655B61FCEFA99000D0471 /* SecondTab */,
 				96D655C21FCEFA99000D0471 /* ThirdTab */,
+				96D655BE1FCEFA99000D0471 /* Next */,
+				96E1A9692006725C0082189B /* Pop */,
+				96D655B21FCEFA99000D0471 /* PopTo */,
 				96D655B01FCEF9DE000D0471 /* App */,
 			);
 			path = Core;
@@ -283,16 +283,6 @@
 			path = FirstTab;
 			sourceTree = "<group>";
 		};
-		96D655CA1FCEFA9A000D0471 /* Intro */ = {
-			isa = PBXGroup;
-			children = (
-				96D655CB1FCEFA9A000D0471 /* IntroCoordinator.swift */,
-				96D655CC1FCEFA9A000D0471 /* IntroVC.swift */,
-				96D655CD1FCEFA9A000D0471 /* IntroVM.swift */,
-			);
-			path = Intro;
-			sourceTree = "<group>";
-		};
 		96DEBEF11FD15F2700926BBC /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +301,16 @@
 				96E1A960200623940082189B /* BaseCoordinator.swift */,
 			);
 			path = Architecture;
+			sourceTree = "<group>";
+		};
+		96E1A9692006725C0082189B /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				96E1A96A200672650082189B /* PopCoordinator.swift */,
+				96E1A96C2006726D0082189B /* PopVC.swift */,
+				96E1A96E200672740082189B /* PopVM.swift */,
+			);
+			path = Pop;
 			sourceTree = "<group>";
 		};
 		AC80BD34D135AA5862CDEFD6 /* Frameworks */ = {
@@ -453,13 +453,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D655D31FCEFFBF000D0471 /* IntroCoordinator.swift in Sources */,
 				9668D6F91FD03FDB00472BD1 /* UIImage.swift in Sources */,
 				96D655D21FCEFFBF000D0471 /* FirstTabVM.swift in Sources */,
-				96D655D41FCEFFBF000D0471 /* IntroVC.swift in Sources */,
+				96E1A96D2006726D0082189B /* PopVC.swift in Sources */,
 				96D655DB1FCEFFBF000D0471 /* PopToVM.swift in Sources */,
 				96D655D71FCEFFBF000D0471 /* NextVC.swift in Sources */,
 				96E1A95F200620610082189B /* BaseController.swift in Sources */,
+				96E1A96B200672650082189B /* PopCoordinator.swift in Sources */,
 				964152D91FD80B610095D491 /* DIContainer.swift in Sources */,
 				96D655D81FCEFFBF000D0471 /* NextVM.swift in Sources */,
 				96D655DA1FCEFFBF000D0471 /* PopToVC.swift in Sources */,
@@ -469,8 +469,8 @@
 				96DEBEFB1FD15F9700926BBC /* PurpleNavigationController.swift in Sources */,
 				96D655DD1FCEFFBF000D0471 /* SecondTabVC.swift in Sources */,
 				96E1A961200623940082189B /* BaseCoordinator.swift in Sources */,
-				96D655D51FCEFFBF000D0471 /* IntroVM.swift in Sources */,
 				96D655D01FCEFFBF000D0471 /* FirstTabCoordinator.swift in Sources */,
+				96E1A96F200672740082189B /* PopVM.swift in Sources */,
 				96D655D61FCEFFBF000D0471 /* NextCoordinator.swift in Sources */,
 				96D655DE1FCEFFBF000D0471 /* SecondTabVM.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

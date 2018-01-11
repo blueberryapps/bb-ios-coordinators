@@ -11,7 +11,7 @@ import Foundation
 class SecondTabVM: BaseViewModel {
     
     func buttonTapped() {
-        self.coordinator?.pop()
+        self.coordinator?.push(screen: AppScreen.pop)
     }
     
 }

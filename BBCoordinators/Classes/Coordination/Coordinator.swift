@@ -8,12 +8,13 @@
 
 // MARK: - Coordinator
 
-public protocol Coordinator: CoordinatorType, Stackable, Coordinatable {
-	associatedtype M
-	associatedtype C: Controller where C.T == M
-}
+open class Coordinator<VM, VC: Controller>: GenericCoordinator where VC.T == VM {
+	public typealias M = VM
+	public typealias C = VC
 
-public extension Coordinator {
+	public weak var stack: CoordinationStack?
+
+	public required init() {}
 
 	/*
 	Method for injecting custom ViewModel of type VM.
@@ -22,7 +23,7 @@ public extension Coordinator {
 
 	- returns custom subclass or instance of VM
 	*/
-	func customViewModel() -> M? { return nil }
+	open func customViewModel() -> M? { return nil }
 
 	/*
 	Method for injecting custom Controller<VM> of type VC.
@@ -33,8 +34,19 @@ public extension Coordinator {
 
 	- returns custom subclass or instance of VC
 	*/
-	func customViewController(with viewModel: M) -> C? { return nil }
+	open func customViewController(with viewModel: M) -> C? { return nil }
 
+	open func willGetOnTop(with: Event) {}
+	open func willLeaveTop(with: Event) {}
+
+}
+
+public protocol GenericCoordinator: CoordinatorType, Stackable, Coordinatable {
+	associatedtype M
+	associatedtype C: Controller where C.T == M
+
+	func customViewModel() -> M?
+	func customViewController(with viewModel: M) -> C?
 }
 
 // MARK: - Coordinatable
@@ -59,23 +71,26 @@ public extension Coordinatable {
 	}
 
 	func popTo(_ screen: Screen) {
-		self.pop(animated: true)
+		self.popTo(screen, animated: true)
 	}
 
 }
 
-public extension Coordinatable where Self: Stackable {
+public extension Coordinatable where Self: Stackable & CoordinatorType {
 
 	func push(screen: Screen, animated: Bool) {
+		self.willLeaveTop(with: .push)
 		self.stack?.push(screen: screen, animated: animated)
 	}
 
 	func pop(animated: Bool) {
+		self.willLeaveTop(with: .pop)
 		self.stack?.pop(animated: animated)
 	}
 
 	func popTo(_ screen: Screen, animated: Bool) {
-		self.stack?.pop(animated: animated)
+		self.willLeaveTop(with: .pop)
+		self.stack?.popTo(screen, animated: animated)
 	}
 
 }
@@ -97,11 +112,18 @@ public protocol CoordinatorType: class {
 	func createViewModel() -> ViewModel
 	func createViewController(with viewModel: ViewModel, and item: UITabBarItem?) -> UIViewController
 
+	func willGetOnTop(with: Event)
+	func willLeaveTop(with: Event)
+
 	init()
 
 }
 
 public extension CoordinatorType where Self: Stackable {
+
+	public var navigationController: UINavigationController? {
+		return self.stack?.rootController
+	}
 
 	func set(stack: CoordinationStack) {
 		self.stack = stack
@@ -109,7 +131,7 @@ public extension CoordinatorType where Self: Stackable {
 
 }
 
-public extension CoordinatorType where Self: Coordinator {
+public extension CoordinatorType where Self: GenericCoordinator {
 
 	func createViewModel() -> ViewModel {
 		return self.customViewModel() ?? M.init(coordinator: self)

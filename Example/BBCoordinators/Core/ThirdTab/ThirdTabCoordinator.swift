@@ -6,24 +6,23 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
+import BBCoordinators
 import Foundation
-
-protocol ThirdTabCoordinatorType {
-	func goToPopTo(withVMTestString test: String, andVCTestString test2: String)
-}
 
 class ThirdTabCoordinator: BaseCoordinator<ThirdTabVM, ThirdTabVC> {
     
-//        self.rootController.setNavigationBarHidden(true, animated: false)
-    
-}
-
-extension ThirdTabCoordinator: ThirdTabCoordinatorType {
-
-	func goToPopTo(withVMTestString test: String, andVCTestString test2: String) {
-		DI.send(test, withKey: DI.Key.diTestVM)
-		DI.send(test2, withKey: DI.Key.diTestVC)
-		self.push(screen: AppScreen.popTo)
+	override func willGetOnTop(with: Event) {
+		switch with {
+		case .pop: print("ThirdTabCoordinator will now GET ON top by POP")
+		case .push: print("ThirdTabCoordinator will now GET ON top by PUSH")
+		}
 	}
 
+	override func willLeaveTop(with: Event) {
+		switch with {
+		case .pop: print("ThirdTabCoordinator will now LEAVE top by POP")
+		case .push: print("ThirdTabCoordinator will now LEAVE top by PUSH")
+		}
+	}
+    
 }

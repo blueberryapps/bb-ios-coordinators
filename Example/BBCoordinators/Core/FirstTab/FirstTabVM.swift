@@ -6,12 +6,12 @@
 //  Copyright © 2017 David Lenský. All rights reserved.
 //
 
-import Foundation
+import UIKit //TODO - this is shit... Fix it!
 
 class FirstTabVM: BaseViewModel {
     
-    func buttonTapped() {
-        self.coordinator?.push(screen: AppScreen.next, animated: true)
+    func switchValueChanged() {
+		(UIApplication.shared.delegate as! AppDelegate).switchStacks()
     }
     
 }

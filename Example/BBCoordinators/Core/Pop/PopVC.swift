@@ -1,15 +1,15 @@
 //
-//  ThirdTabVC.swift
-//  TestProject
+//  PopVC.swift
+//  BBCoordinators_Example
 //
-//  Created by David Lenský on 26/11/2017.
-//  Copyright © 2017 David Lenský. All rights reserved.
+//  Created by David Lenský on 10/01/2018.
+//  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
 import UIKit
 
-class ThirdTabVC: BaseController<ThirdTabVM> {
-    
+class PopVC: BaseController<PopVM> {
+
 	let appScheme = AppScheme.instantiate()
 
 	override func viewDidLoad() {
@@ -21,7 +21,7 @@ class ThirdTabVC: BaseController<ThirdTabVM> {
 	}
 
 	private func setupButton() {
-		self.appScheme.button.setTitle("Push \"Next\" Screen", for: .normal)
+		self.appScheme.button.setTitle("Pop current screen", for: .normal)
 		self.appScheme.button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 	}
 
@@ -31,7 +31,7 @@ class ThirdTabVC: BaseController<ThirdTabVM> {
 	}
 
 	private func setupLabel() {
-		self.appScheme.label.text = "Third Tab\nScreen"
+		self.appScheme.label.text = "Pop\nScreen"
 	}
 
 	@objc func buttonTapped() {

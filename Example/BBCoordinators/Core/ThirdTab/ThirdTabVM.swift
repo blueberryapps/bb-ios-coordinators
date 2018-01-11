@@ -10,9 +10,8 @@ import Foundation
 
 class ThirdTabVM: BaseViewModel {
     
-    func buttonTapped() {
-		guard let coordinator = self.coordinator as? ThirdTabCoordinatorType else { return }
-        coordinator.goToPopTo(withVMTestString: "Test VM DI successful", andVCTestString: "Test VC DI successful")
-    }
+	func buttonTapped() {
+		self.coordinator?.push(screen: AppScreen.next)
+	}
     
 }

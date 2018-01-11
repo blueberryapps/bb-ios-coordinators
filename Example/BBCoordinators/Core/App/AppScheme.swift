@@ -10,25 +10,10 @@ import UIKit
 
 class AppScheme: UIView {
 
-	@IBOutlet weak var introBox: Box!
-	@IBOutlet weak var firstBox: Box!
-	@IBOutlet weak var secondBox: Box!
-	@IBOutlet weak var thirdBox: Box!
-	@IBOutlet weak var tabBarBox: Box!
-	@IBOutlet weak var nextBox: Box!
-	@IBOutlet weak var popToBox: Box!
-	@IBOutlet weak var firstTabBox: Box!
-	@IBOutlet weak var secondTabBox: Box!
-	@IBOutlet weak var thirdTabBox: Box!
-
-	@IBOutlet weak var introLine: Line!
-	@IBOutlet weak var firstLine: Line!
-	@IBOutlet weak var secondLine: Line!
-	@IBOutlet weak var thirdLine: Line!
-	@IBOutlet weak var nextLine: Line!
-	@IBOutlet weak var popToLine: Line!
-
+	@IBOutlet weak var label: UILabel!
 	@IBOutlet weak var button: UIButton!
+	@IBOutlet weak var `switch`: UISwitch!
+	@IBOutlet weak var switchView: UIView!
 
 	static func instantiate() -> AppScheme {
 		return UINib(nibName: "AppScheme", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! AppScheme

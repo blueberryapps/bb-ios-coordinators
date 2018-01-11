@@ -56,7 +56,6 @@ private extension CoordinationManager {
 			self.window.rootViewController = self.tabBarController
 			self.tabBarController.setViewControllers(viewControllers, animated: false)
 		}
-		print(self.tabBarController.viewControllers)
 	}
 
 }

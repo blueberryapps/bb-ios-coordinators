@@ -10,8 +10,9 @@ import Foundation
 
 class NextVM: BaseViewModel {
     
-    func buttonTapped() {
-        self.coordinator?.pop()
-    }
+	func buttonTapped() {
+		guard let coordinator = self.coordinator as? NextCoordinatorType else { return }
+		coordinator.goToPopTo(withVMTestString: "Test VM DI successful", andVCTestString: "Test VC DI successful")
+	}
     
 }

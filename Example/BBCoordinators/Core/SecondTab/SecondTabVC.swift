@@ -17,40 +17,25 @@ class SecondTabVC: BaseController<SecondTabVM> {
 
 		self.setupBackground()
 		self.setupButton()
+		self.setupLabel()
 	}
 
 	private func setupButton() {
-		self.appScheme.button.setTitle("Pop back one", for: .normal)
+		self.appScheme.button.setTitle("Push \"Pop\" Screen", for: .normal)
 		self.appScheme.button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+	}
+
+	private func setupBackground() {
+		self.appScheme.frame = CGRect(x: self.view.frame.minX + 20, y: self.view.frame.minY + 30, width: self.view.frame.width - 40, height: self.view.frame.height - 94)
+		self.view.addSubview(appScheme)
+	}
+
+	private func setupLabel() {
+		self.appScheme.label.text = "Second Tab\nScreen"
 	}
 
 	@objc func buttonTapped() {
 		self.viewModel?.buttonTapped()
-	}
-
-}
-
-// MARK: - Background
-
-extension SecondTabVC {
-
-	fileprivate func setupBackground() {
-		self.appScheme.frame = CGRect(x: self.view.frame.minX + 20, y: self.view.frame.minY + 30, width: self.view.frame.width - 40, height: self.view.frame.height - 94)
-		self.appScheme.secondBox.borderColor = .red
-		self.appScheme.secondBox.borderWidth = 2
-		self.appScheme.secondTabBox.borderColor = .red
-		self.appScheme.secondTabBox.borderWidth = 2
-		self.appScheme.secondLine.backgroundColor = .red
-		self.appScheme.secondLine.selected = true
-
-		self.appScheme.tabBarBox.borderColor = .blue
-		self.appScheme.tabBarBox.borderWidth = 2
-		self.appScheme.introBox.borderColor = .blue
-		self.appScheme.introBox.borderWidth = 2
-		self.appScheme.introLine.backgroundColor = .blue
-		self.appScheme.introLine.selected = true
-
-		self.view.addSubview(appScheme)
 	}
 
 }

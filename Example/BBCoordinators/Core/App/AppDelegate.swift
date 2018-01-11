@@ -20,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		UIApplication.shared.statusBarStyle = .lightContent
 
-		self.manager.addStack(with: AppScreen.firstTab)
-		self.manager.addStack(with: AppScreen.secondTab)
-		self.manager.addStack(with: AppScreen.thirdTab)
+		self.switchStacks()
 
         return true
     }
@@ -48,6 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
+	func switchStacks() {
+		if self.manager.stacks.count == 1 {
+			UIView.transition(with: self.manager.window, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+				self.manager.clearStacks()
+				self.manager.addStack(with: AppScreen.firstTab)
+				self.manager.addStack(with: AppScreen.secondTab)
+				self.manager.addStack(with: AppScreen.thirdTab)
+			}, completion: nil)
+		} else {
+			UIView.transition(with: self.manager.window, duration: 0.3, options: .transitionFlipFromRight, animations: {
+				self.manager.clearStacks()
+				self.manager.addStack(with: AppScreen.firstTab)
+			}, completion: nil)
+		}
+	}
 
 
 }

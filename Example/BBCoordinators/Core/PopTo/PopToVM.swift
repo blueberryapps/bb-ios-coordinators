@@ -9,9 +9,14 @@
 import Foundation
 
 class PopToVM: BaseViewModel {
-    
+
+	convenience init(coordinator: PopToCoordinator, diTest: String) {
+		self.init(coordinator: coordinator)
+		print(diTest)
+	}
+
     func buttonTapped() {
-        self.coordinator?.popTo(AppScreen.intro)
+        self.coordinator?.popTo(AppScreen.thirdTab)
     }
     
 }

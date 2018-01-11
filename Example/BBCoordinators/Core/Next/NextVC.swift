@@ -17,36 +17,25 @@ class NextVC: BaseController<NextVM> {
 
 		self.setupBackground()
 		self.setupButton()
+		self.setupLabel()
 	}
 
 	private func setupButton() {
-		self.appScheme.button.setTitle("Pop back one", for: .normal)
+		self.appScheme.button.setTitle("Push \"PopTo\" Screen", for: .normal)
 		self.appScheme.button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+	}
+
+	private func setupBackground() {
+		self.appScheme.frame = CGRect(x: self.view.frame.minX + 20, y: self.view.frame.minY + 30, width: self.view.frame.width - 40, height: self.view.frame.height - 94)
+		self.view.addSubview(appScheme)
+	}
+
+	private func setupLabel() {
+		self.appScheme.label.text = "Next\nScreen"
 	}
 
 	@objc func buttonTapped() {
 		self.viewModel?.buttonTapped()
-	}
-
-}
-
-// MARK: - Background
-
-extension NextVC {
-
-	fileprivate func setupBackground() {
-		self.appScheme.frame = CGRect(x: self.view.frame.minX + 20, y: self.view.frame.minY + 30, width: self.view.frame.width - 40, height: self.view.frame.height - 94)
-		self.appScheme.nextBox.borderColor = .red
-		self.appScheme.nextBox.borderWidth = 2
-		self.appScheme.firstTabBox.borderColor = .red
-		self.appScheme.firstTabBox.borderWidth = 2
-
-		self.appScheme.firstBox.borderColor = .blue
-		self.appScheme.firstBox.borderWidth = 2
-		self.appScheme.nextLine.backgroundColor = .blue
-		self.appScheme.nextLine.selected = true
-
-		self.view.addSubview(appScheme)
 	}
 
 }

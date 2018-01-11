@@ -19,10 +19,12 @@ public class CoordinationStack: Coordinatable {
 
 		coordinator.set(stack: self)
 		self.coordinators.append(coordinator)
+		coordinator.willGetOnTop(with: .push)
 		self.rootController?.pushViewController(vc, animated: animated)
 	}
 
 	public func pop(animated: Bool = true) {
+		self.coordinators[self.coordinators.count - 2].willGetOnTop(with: .pop)
 		self.rootController?.popViewController(animated: animated)
 		let _ = self.coordinators.popLast()
 	}
@@ -30,12 +32,13 @@ public class CoordinationStack: Coordinatable {
 	public func popTo(_ screen: Screen, animated: Bool = true) {
 		guard
 			let index = self.coordinators.index(where: { coordinator -> Bool in
-					type(of: screen) == screen.type
+					 type(of: coordinator) == screen.type
 				}),
 			let newControllers = self.rootController?.viewControllers[0...index]
 		else { return }
 
 		let newCoordinators = self.coordinators[0...index]
+		newCoordinators.last?.willGetOnTop(with: .pop)
 
 		self.rootController?.setViewControllers(Array(newControllers), animated: animated)
 		self.coordinators = Array(newCoordinators)
